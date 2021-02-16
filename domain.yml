@@ -1,0 +1,55 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- affirm
+- stop
+- goodbye
+- deny
+- bot_challenge
+- weather_query
+- weather_chat
+entities:
+- GPE
+- LOC
+- DATE
+- TIME
+- weather_type
+slots:
+  GPE:
+    type: any
+    influence_conversation: false
+  LOC:
+    type: any
+    influence_conversation: false
+  DATE:
+    type: any
+    influence_conversation: false
+  TIME:
+    type: any
+    influence_conversation: false
+  weather_type:
+    type: categorical
+    values:
+      - sunny
+      - cloudy
+      - rainy
+      - snowy
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey! Would you like to ask me about a weather forecast?
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: Of course! I'm the weather forecast bot :)
+  utter_forecast:
+  - text: gpe:{GPE} loc:{LOC} date:{DATE} time:{TIME} type:{weather_type}
+  utter_reply_weather_chat:
+  - text: Interesting...
+  utter_fallback:
+  - text: What?!
+actions:
+- utter_greet

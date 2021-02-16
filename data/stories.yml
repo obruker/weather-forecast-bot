@@ -1,0 +1,18 @@
+version: "2.0"
+
+stories:
+
+- story: greetings
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- story: give a weather forecast
+  steps:
+  - intent: weather_query
+  - action: utter_forecast
+
+- story: reply a weather chat
+  steps:
+  - intent: weather_chat
+  - action: utter_reply_weather_chat
