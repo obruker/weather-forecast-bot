@@ -9,7 +9,7 @@ stories:
     intent: greet
   - action: utter_greet
   - user: |
-      will it be raining tonight?
+      will it be [raining]{"entity": "weather_type"} [tonight]{"entity": "TIME"}\?
     intent: weather_query
   - slot_was_set:
     - weather_type: rainy
